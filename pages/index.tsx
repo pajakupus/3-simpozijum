@@ -28,15 +28,15 @@ export default function Home() {
                 <div className="relative w-full self-stretch flex flex-col items-start justify-start gap-[32px]">
                   <img className="w-[167.91px] relative h-[188.66px] object-cover" alt="" src="https://kgbiwzxndpstlvvpwztg.supabase.co/storage/v1/object/public/Images/Logo-klinike.png" />
                   <div className="self-stretch relative tracking-[-0.05em] leading-[125%] font-medium">
-                    <span>III simpozijum</span>
-                    <span className="text-black">, klinike za psihijatriju</span>
+                    <span>III Simpozijum</span>
+                    <span className="text-black"> Klinika za psihijatriju, UKC Niš</span>
                   </div>
                 </div>
-                <div className="w-full relative flex flex-col items-start justify-start text-[42px] text-plum">
+                <div className="w-full relative flex flex-col items-start justify-start text-[42px] lg:text-[56px] text-plum">
                   <div className="w-full relative tracking-[-0.05em] leading-[125%] font-medium inline-block">Agresija i nasilje, psiho(pato)loški aspekt - multidisciplinarni pristup</div>
                 </div>
               </div>
-              <div className="self-stretch relative text-5xl tracking-[-0.01em] leading-[140%] text-black">Klinika za psihijatriju sa velikim zadovoljstvom vas poziva na III simpozijum klinike za psihijatriju (akreditacija u toku) na temu „Agresija i nasilje psiho(pato)loški aspekt -multidisciplinarni pristup“ koji će se održati od 30.05.-01.06.2024. godine u Kuršumlijskoj banji, hotel „Planinka“.</div>
+              <div className="self-stretch relative text-5xl tracking-[-0.01em] leading-[140%] text-black">Klinika za psihijatriju u G.Toponici, UKC Niš, sa velikim zadovoljstvom vas poziva na III Simpozijum (akreditacija u toku) na temu „Agresija i nasilje psiho(pato)loški aspekt -multidisciplinarni pristup“ koji će se održati od 30.05.-01.06.2024. godine u Kuršumlijskoj banji, hotel „Planinka“.</div>
             </div>
             <div className="lg:w-[584px] w-full flex flex-col items-start justify-start gap-[16px] text-7xl text-white">
               <button type='button' onClick={() => scrollToFormSection()} className="w-full rounded-13xl bg-seagreen shadow-[0px_2px_4px_rgba(48,_49,_51,_0.1),_0px_0px_1px_rgba(48,_49,_51,_0.05)] h-[76px] flex flex-row items-center justify-center py-6 px-12 box-border">
@@ -57,7 +57,7 @@ export default function Home() {
             </svg>
             <div className="w-[290px] relative flex items-end shrink-0">Mesto</div>
           </div>
-          <a href='https://maps.app.goo.gl/JWM9qMN9cZatsNoMA' target="_blank" rel="noreferrer"  className="w-full self-stretch relative text-29xl [text-decoration:underline] text-seagreen">Kursumlijska Banja, hotel “Planinka”</a>
+          <a href='https://maps.app.goo.gl/JWM9qMN9cZatsNoMA' target="_blank" rel="noreferrer"  className="w-full self-stretch relative text-29xl [text-decoration:underline] text-seagreen">Kursumlijska Banja<br/>hotel “Planinka”</a>
         </div>
         <div className="self-stretch w-full lg:w-[620px] rounded-lg flex flex-col items-start justify-start gap-[24px]">
           <div className="flex flex-row items-start justify-start gap-[4px]">
@@ -75,7 +75,7 @@ export default function Home() {
             </svg>
             <div className="w-[290px] relative flex items-end shrink-0">Vreme</div>
           </div>
-          <b className="self-stretch relative text-29xl">30.05 - 01.06.2024</b>
+          <b className="self-stretch relative text-29xl">30.05.2024. - 01.06.2024.</b>
         </div>
       </div>
       <section ref={formSectionRef} id="form-section" className="w-full max-w-[1440px] flex flex-col lg:flex-row items-start justify-start p-[16px] lg:p-20 box-border gap-[40px] z-[7]">
@@ -116,7 +116,7 @@ export default function Home() {
               <img className="w-[172.37px] relative rounded-[86.19px] h-[181.39px] object-cover" alt="" src="https://kgbiwzxndpstlvvpwztg.supabase.co/storage/v1/object/public/Images/Slika-3.png" />
               <div className="flex flex-col items-center lg:items-start justify-center gap-[8px]">
                 <div className="relative tracking-[-0.05em] leading-[40px] font-medium text-center lg:text-start">Prof. dr Suzana Tosic Golubovic</div>
-                <div className="relative text-5xl leading-[109.5%] text-dimgray">Psihijatar</div>
+                <div className="relative text-5xl leading-[109.5%] text-dimgray">psihijatar</div>
               </div>
             </div>
           </div>
@@ -126,59 +126,59 @@ export default function Home() {
               <div className="flex flex-col items-start justify-start gap-[32px]">
                 <div className="flex flex-col items-start justify-center gap-[8px]">
                   <div className="relative tracking-[-0.05em] leading-[40px] font-medium">Dr Nada Ćirič</div>
-                  <div className="relative text-5xl leading-[109.5%] text-dimgray">Psihijatar</div>
+                  <div className="relative text-5xl leading-[109.5%] text-dimgray">psihijatar</div>
                 </div>
                 <div className="flex flex-col items-start justify-center gap-[8px]">
                   <div className="relative tracking-[-0.05em] leading-[40px] font-medium">Prof. dr Olivera Žikić</div>
-                  <div className="relative text-5xl leading-[109.5%] text-dimgray">Psihijatar</div>
+                  <div className="relative text-5xl leading-[109.5%] text-dimgray">psihijatar</div>
                 </div>
                 <div className="flex flex-col items-start justify-center gap-[8px]">
                   <div className="relative tracking-[-0.05em] leading-[40px] font-medium">Dr sci.med. Snežana Manojlović</div>
-                  <div className="relative text-5xl leading-[109.5%] text-dimgray">Psihijatar</div>
+                  <div className="relative text-5xl leading-[109.5%] text-dimgray">psihijatar</div>
                 </div>
                 <div className="flex flex-col items-start justify-center gap-[8px]">
                   <div className="relative tracking-[-0.05em] leading-[40px] font-medium">Dr Iva Binić</div>
-                  <div className="relative text-5xl leading-[109.5%] text-dimgray">Psihijatar</div>
+                  <div className="relative text-5xl leading-[109.5%] text-dimgray">psihijatar</div>
                 </div>
                 <div className="flex flex-col items-start justify-center gap-[8px]">
                   <div className="relative tracking-[-0.05em] leading-[40px] font-medium">Mr. sci med. Violeta Slavković</div>
-                  <div className="relative text-5xl leading-[109.5%] text-dimgray">Psihijatar</div>
+                  <div className="relative text-5xl leading-[109.5%] text-dimgray">psihijatar</div>
                 </div>
               </div>
               <div className="flex flex-col items-start justify-start gap-[32px]">
                 <div className="flex flex-col items-start justify-center gap-[8px]">
                   <div className="relative tracking-[-0.05em] leading-[40px] font-medium">Dr Vladica Sibinović</div>
-                  <div className="relative text-5xl leading-[109.5%] text-dimgray">Psihijatar</div>
+                  <div className="relative text-5xl leading-[109.5%] text-dimgray">psihijatar</div>
                 </div>
                 <div className="flex flex-col items-start justify-center gap-[8px]">
                   <div className="relative tracking-[-0.05em] leading-[40px] font-medium">Dr Tanja Mladenović</div>
-                  <div className="relative text-5xl leading-[109.5%] text-dimgray">Psihijatar</div>
+                  <div className="relative text-5xl leading-[109.5%] text-dimgray">psihijatar</div>
                 </div>
                 <div className="flex flex-col items-start justify-center gap-[8px]">
                   <div className="relative tracking-[-0.05em] leading-[40px] font-medium">Dr Jovana Petrović</div>
-                  <div className="relative text-5xl leading-[109.5%] text-dimgray">Specijalizant iz psihijatrije</div>
+                  <div className="relative text-5xl leading-[109.5%] text-dimgray">specijalizant iz psihijatrije</div>
                 </div>
                 <div className="flex flex-col items-start justify-center gap-[8px]">
                   <div className="relative tracking-[-0.05em] leading-[40px] font-medium">Dr Milan Petković</div>
-                  <div className="relative text-5xl leading-[109.5%] text-dimgray">Specijalizant iz psihijatrije</div>
+                  <div className="relative text-5xl leading-[109.5%] text-dimgray">specijalizant iz psihijatrije</div>
                 </div>
                 <div className="flex flex-col items-start justify-center gap-[8px]">
                   <div className="relative tracking-[-0.05em] leading-[40px] font-medium">Dr Uroš Gugleta</div>
-                  <div className="relative text-5xl leading-[109.5%] text-dimgray">Specijalizant iz psihijatrije</div>
+                  <div className="relative text-5xl leading-[109.5%] text-dimgray">specijalizant iz psihijatrije</div>
                 </div>
               </div>
               <div className="flex flex-col items-start justify-start gap-[64px]">
                 <div className="flex flex-col items-start justify-center gap-[8px]">
                   <div className="relative tracking-[-0.05em] leading-[40px] font-medium">Dr Anja Vručinić</div>
-                  <div className="relative text-5xl leading-[109.5%] text-dimgray">Specijalizant iz psihijatrije</div>
+                  <div className="relative text-5xl leading-[109.5%] text-dimgray">specijalizant iz psihijatrije</div>
                 </div>
                 <div className="flex flex-col items-start justify-center gap-[8px]">
                   <div className="relative tracking-[-0.05em] leading-[40px] font-medium">Dr Nikola Stojanović</div>
-                  <div className="relative text-5xl leading-[109.5%] text-dimgray">Specijalizant iz psihijatrije</div>
+                  <div className="relative text-5xl leading-[109.5%] text-dimgray">specijalizant iz psihijatrije</div>
                 </div>
                 <div className="flex flex-col items-start justify-center gap-[8px]">
                   <div className="relative tracking-[-0.05em] leading-[40px] font-medium">Sonja Spremo</div>
-                  <div className="relative text-5xl leading-[109.5%] text-dimgray">Glavna sestra</div>
+                  <div className="relative text-5xl leading-[109.5%] text-dimgray">glavna sestra</div>
                 </div>
               </div>
             </div>

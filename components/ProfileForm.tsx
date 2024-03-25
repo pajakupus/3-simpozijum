@@ -18,6 +18,7 @@ export function ProfileForm({ }: Props) {
   const [phone, setPhone] = useState('');
   const [licence, setLicence] = useState('');
   const [ustanova, setUstanova] = useState('');
+  const [address, setAddress] = useState('');
   const [firstNameEmpty, setFirstNameEmpty] = useState(false);
   const [lastNameEmpty, setLastNameEmpty] = useState(false);
   const [emailEmpty, setEmailEmpty] = useState(false);
@@ -25,6 +26,7 @@ export function ProfileForm({ }: Props) {
   const [phoneEmpty, setPhoneEmpty] = useState(false);
   const [licenceEmpty, setLicenceEmpty] = useState(false);
   const [ustanovaEmpty, setUstanovaEmpty] = useState(false);
+  const [addressEmpty, setAddressEmpty] = useState(false);
 
   const handleNumberInputChange = (e: React.ChangeEvent<HTMLInputElement>, func: Function, emptyFunc: Function) => {
     // Allow only numeric characters
@@ -57,6 +59,7 @@ export function ProfileForm({ }: Props) {
     ustanova,
     title,
     phone,
+    address,
   }: {
     firstName: string
     lastName: string
@@ -65,6 +68,7 @@ export function ProfileForm({ }: Props) {
     ustanova: string
     title: string
     phone: string
+    address: string
   }) {
 
     
@@ -78,8 +82,9 @@ export function ProfileForm({ }: Props) {
     phone == '' ? setPhoneEmpty(true): null;
     licence == '' ? setLicenceEmpty(true) : null;
     email == '' ? setEmailEmpty(true): null;
+    address == '' ? setAddressEmpty(true): null;
  
-    if (firstNameEmpty || lastNameEmpty || emailEmpty || licenceEmpty || ustanovaEmpty || titleEmpty || phoneEmpty) {
+    if (firstNameEmpty || lastNameEmpty || emailEmpty || licenceEmpty || ustanovaEmpty || titleEmpty || phoneEmpty || addressEmpty) {
       throw new Error('Sva polja moraju biti popunjena');
     }
     try {
@@ -91,6 +96,7 @@ export function ProfileForm({ }: Props) {
         phone: phone,
         ustanova: ustanova,
         title: title,
+        address: address,
       };
 
       const { error } = await supabase.from('users').upsert(data, {
@@ -115,6 +121,7 @@ export function ProfileForm({ }: Props) {
         Broj Licence: ${licence},
         Ustanova: ${ustanova},
         Telefon: ${phone},
+        Adresa: ${address},
         Email: ${email},
         `, // Adjust message content as needed
       };
@@ -203,6 +210,19 @@ export function ProfileForm({ }: Props) {
                 {ustanovaEmpty && <div className='text-red-500'>Ime ustanove je obavezano</div>}
             </div>
           </div>
+          {/* adresa */}
+          <div className="self-stretch flex flex-row items-start justify-start gap-[40px]">
+            <div className="flex-1 flex flex-col items-start justify-start gap-[4px] form-group">
+              <label className="label" htmlFor="address">Adresa:*</label>
+              <input className="self-stretch box-border flex flex-row items-center justify-start p-4 text-base text-black placeholder-cadet-green border-[1px] border-solid border-bb-green" id="address"
+                value={address}
+                type="text"
+                onChange={(e) => handleInputChange(e,setAddress,setAddressEmpty)}
+                disabled={updating}
+              />
+                {addressEmpty && <div className='text-red-500'>Ime ustanove je obavezano</div>}
+            </div>
+          </div>
           {/* telefon */}
           <div className="self-stretch flex flex-row items-start justify-start gap-[40px]">
             <div className="flex-1 flex flex-col items-start justify-start gap-[4px] form-group">
@@ -229,8 +249,8 @@ export function ProfileForm({ }: Props) {
                 {emailEmpty && <div className='text-red-500'>Email je obavezan</div>}
             </div>
           </div>
-          <button type='button' onClick={() => submitForm({ firstName, lastName, email, title, phone, ustanova, licence })}
-            disabled={updating || firstNameEmpty || lastNameEmpty || emailEmpty || phoneEmpty || licenceEmpty || titleEmpty || ustanovaEmpty} className="self-stretch rounded-13xl bg-seagreen shadow-[0px_2px_4px_rgba(48,_49,_51,_0.1),_0px_0px_1px_rgba(48,_49,_51,_0.05)] flex flex-row items-center justify-center py-6 px-12 text-7xl text-white font-manrope">
+          <button type='button' onClick={() => submitForm({ firstName, lastName, email, title, phone, ustanova, licence, address})}
+            disabled={updating || firstNameEmpty || lastNameEmpty || emailEmpty || phoneEmpty || licenceEmpty || titleEmpty || ustanovaEmpty || addressEmpty} className="self-stretch rounded-13xl bg-seagreen shadow-[0px_2px_4px_rgba(48,_49,_51,_0.1),_0px_0px_1px_rgba(48,_49,_51,_0.05)] flex flex-row items-center justify-center py-6 px-12 text-7xl text-white font-manrope">
             <span className="relative leading-[109.5%] font-semibold">{updating ? 'Slanje prijave…' : 'Prijavi se'}</span>
           </button>
         </form>
