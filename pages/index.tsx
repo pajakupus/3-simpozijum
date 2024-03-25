@@ -28,15 +28,15 @@ export default function Home() {
                 <div className="relative w-full self-stretch flex flex-col items-start justify-start gap-[32px]">
                   <img className="w-[167.91px] relative h-[188.66px] object-cover" alt="" src="https://kgbiwzxndpstlvvpwztg.supabase.co/storage/v1/object/public/Images/Logo-klinike.png" />
                   <div className="self-stretch relative tracking-[-0.05em] leading-[125%] font-medium">
-                    <span>III Simpozijum</span>
-                    <span className="text-black"> Klinika za psihijatriju, UKC Niš</span>
+                    <div>III Simpozijum</div>
+                    <div className="text-black"> Klinika za psihijatriju, UKC Niš</div>
                   </div>
                 </div>
                 <div className="w-full relative flex flex-col items-start justify-start text-[42px] lg:text-[56px] text-plum">
                   <div className="w-full relative tracking-[-0.05em] leading-[125%] font-medium inline-block">Agresija i nasilje, psiho(pato)loški aspekt - multidisciplinarni pristup</div>
                 </div>
               </div>
-              <div className="self-stretch relative text-5xl tracking-[-0.01em] leading-[140%] text-black">Klinika za psihijatriju u G.Toponici, UKC Niš, sa velikim zadovoljstvom vas poziva na III Simpozijum (akreditacija u toku) na temu „Agresija i nasilje psiho(pato)loški aspekt -multidisciplinarni pristup“ koji će se održati od 30.05.-01.06.2024. godine u Kuršumlijskoj banji, hotel „Planinka“.</div>
+              <div className="self-stretch relative text-5xl tracking-[-0.01em] leading-[140%] text-black">Klinika za psihijatriju u G.Toponici, UKC Niš, sa velikim zadovoljstvom vas poziva na III Simpozijum (akreditacija u toku) na temu „Agresija i nasilje psiho(pato)loški aspekt -multidisciplinarni pristup“ koji će se održati od 30.05.-01.06.2024. godine u Kuršumlijskoj Banji, hotel „Planinka“.</div>
             </div>
             <div className="lg:w-[584px] w-full flex flex-col items-start justify-start gap-[16px] text-7xl text-white">
               <button type='button' onClick={() => scrollToFormSection()} className="w-full rounded-13xl bg-seagreen shadow-[0px_2px_4px_rgba(48,_49,_51,_0.1),_0px_0px_1px_rgba(48,_49,_51,_0.05)] h-[76px] flex flex-row items-center justify-center py-6 px-12 box-border">
