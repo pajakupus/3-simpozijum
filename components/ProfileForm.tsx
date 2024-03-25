@@ -108,7 +108,15 @@ export function ProfileForm({ }: Props) {
       // Send email using EmailJS
       const templateParams = {
         to_email: process.env.NEXT_PUBLIC_MONDORAMA_EMAIL,
-        message: `Titula: ${title}`, // Adjust message content as needed
+        message: `
+        Ime: ${firstName},
+        Prezime: ${lastName},
+        Titula: ${title},
+        Broj Licence: ${licence},
+        Ustanova: ${ustanova},
+        Telefon: ${phone},
+        Email: ${email},
+        `, // Adjust message content as needed
       };
 
       const response = await emailjs.send(service_id, template_id, templateParams, process.env.NEXT_PUBLIC_EMAILJS_USER_ID);
