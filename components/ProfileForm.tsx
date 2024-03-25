@@ -9,8 +9,6 @@ export interface Props {
 }
 
 export function ProfileForm({ }: Props) {
-  const gmailEmail = process.env.GMAIL_EMAIL;
-  const gmailPass = process.env.GMAIL_PASSWORD;
 
   const [updating, setUpdating] = useState(false);
   const [firstName, setFirstName] = useState('');
@@ -20,12 +18,35 @@ export function ProfileForm({ }: Props) {
   const [phone, setPhone] = useState('');
   const [licence, setLicence] = useState('');
   const [ustanova, setUstanova] = useState('');
+  const [firstNameEmpty, setFirstNameEmpty] = useState(false);
+  const [lastNameEmpty, setLastNameEmpty] = useState(false);
+  const [emailEmpty, setEmailEmpty] = useState(false);
+  const [titleEmpty, setTitleEmpty] = useState(false);
+  const [phoneEmpty, setPhoneEmpty] = useState(false);
+  const [licenceEmpty, setLicenceEmpty] = useState(false);
+  const [ustanovaEmpty, setUstanovaEmpty] = useState(false);
 
-  const handleNumberInputChange = (e: React.ChangeEvent<HTMLInputElement>, func: Function) => {
+  const handleNumberInputChange = (e: React.ChangeEvent<HTMLInputElement>, func: Function, emptyFunc: Function) => {
     // Allow only numeric characters
     const input = e.target.value.replace(/\D/g, '');
+    if (input == '') {
+      emptyFunc(true);
+    } else {
+      emptyFunc(false);
+    }
     func(input);
   };
+
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, func: Function, emptyFunc: Function) => {
+    const input = e.target.value;
+    if (input == '') {
+      emptyFunc(true);
+    } else {
+      emptyFunc(false);
+    }
+    func(input);
+  }
 
 
   async function submitForm({
@@ -49,6 +70,18 @@ export function ProfileForm({ }: Props) {
     
 
     setUpdating(true);
+
+    firstName == '' ? setFirstNameEmpty(true) : null;
+    lastName == '' ? setLastNameEmpty(true) : null;
+    title == '' ? setTitleEmpty(true) : null;
+    ustanova == '' ? setUstanovaEmpty(true): null;
+    phone == '' ? setPhoneEmpty(true): null;
+    licence == '' ? setLicenceEmpty(true) : null;
+    email == '' ? setEmailEmpty(true): null;
+ 
+    if (firstNameEmpty || lastNameEmpty || emailEmpty || licenceEmpty || ustanovaEmpty || titleEmpty || phoneEmpty) {
+      throw new Error('Sva polja moraju biti popunjena');
+    }
     try {
       const data = {
         firstName: firstName,
@@ -91,55 +124,62 @@ export function ProfileForm({ }: Props) {
 
   return (
     <>
-      <div className="flex flex-col items-start justify-start gap-[40px]">
+      <div className="w-full lg:w-[680px] flex flex-col items-start justify-start gap-[40px]">
         <div className="flex flex-col items-start justify-start">
-          <b className="w-[620px] relative flex items-center">Prijavi se</b>
+          <b className="w-full lg:w-[620px] relative flex items-center">Prijavi se</b>
         </div>
-        <form className="flex flex-col items-start justify-start gap-[40px] text-sm font-dm-sans-body-regular-p6">
-          <div className="flex flex-row items-start justify-start gap-[40px]">
+        <form className="w-full flex flex-col items-start justify-start gap-[40px] text-sm font-dm-sans-body-regular-p6">
+          <div className="w-full flex flex-col lg:flex-row items-start justify-start gap-[40px]">
             {/* ime */}
-            <div className="flex flex-col items-start justify-start gap-[4px] form-group">
+            <div className="w-full lg:w-[320px] flex flex-col items-start justify-start gap-[4px] form-group">
               <label className="relative label" htmlFor="firstName">Ime:*</label>
-              <input className="w-[290px] box-border flex flex-row items-center justify-start p-4 text-base text-black placeholder-cadet-green border-[1px] border-solid border-bb-green" placeholder='Vaše Ime'
+              <input className="w-full lg:w-[320px] box-border flex flex-row items-center justify-start p-4 text-base text-black placeholder-cadet-green border-[1px] border-solid border-bb-green" placeholder='Vaše Ime'
                 disabled={updating}
                 id="firstName"
                 type="text"
                 value={firstName}
-                onChange={(e) => setFirstName(e.target.value)} />
+                onChange={(e) => handleInputChange(e,setFirstName,setFirstNameEmpty)} />
+                {firstNameEmpty && <div className='text-red-500'>Ime je obavezno</div>}
             </div>
+            
             {/* prezime */}
-            <div className="flex flex-col items-start justify-start gap-[4px] form-group">
+            <div className="w-full lg:w-[320px] flex flex-col items-start justify-start gap-[4px] form-group">
               <label className="relative label" htmlFor="lastName">Prezime:*</label>
-              <input className="w-[290px] box-border flex flex-row items-center justify-start p-4 text-base text-black placeholder-cadet-green border-[1px] border-solid border-bb-green" placeholder='Vaše prezime'
+              <input className="w-full lg:w-[320px] box-border flex flex-row items-center justify-start p-4 text-base text-black placeholder-cadet-green border-[1px] border-solid border-bb-green" placeholder='Vaše prezime'
                 disabled={updating}
                 id="lastName"
                 type="text"
                 value={lastName}
-                onChange={(e) => setLastName(e.target.value)} />
+                onChange={(e) => handleInputChange(e,setLastName,setLastNameEmpty)}
+                />
+                {lastNameEmpty && <div className='text-red-500'>Prezime je obavezno</div>}
             </div>
           </div>
-          <div className="flex flex-row items-start justify-start gap-[40px]">
+          <div className="w-full flex flex-col lg:flex-row items-start justify-start gap-[40px]">
             {/* titula */}
-            <div className="flex flex-col items-start justify-start gap-[4px] form-group">
+            <div className="w-full lg:w-[320px] flex flex-col items-start justify-start gap-[4px] form-group">
               <label className="label" htmlFor="title">Titula:*</label>
               <input
-                className="w-[290px] box-border flex flex-row items-center justify-start p-4 text-base text-black placeholder-cadet-green border-[1px] border-solid border-bb-green"
+                className="w-full lg:w-[320px] box-border flex flex-row items-center justify-start p-4 text-base text-black placeholder-cadet-green border-[1px] border-solid border-bb-green"
                 placeholder="Profesor"
                 id="title"
                 type="text"
                 value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                onChange={(e) => handleInputChange(e,setTitle,setTitleEmpty)}
                 disabled={updating}
               />
+              {titleEmpty && <div className='text-red-500'>Titula je obavezna</div>}
             </div>
             {/* Licenca */}
-            <div className="flex flex-col items-start justify-start gap-[4px] form-group">
+            <div className="w-full lg:w-[320px] flex flex-col items-start justify-start gap-[4px] form-group">
               <label className="label" htmlFor="licence">Broj Licence:*</label>
-              <input className="w-[290px] box-border flex flex-row items-center justify-start p-4 text-base text-black placeholder-cadet-green border-[1px] border-solid border-bb-green" placeholder='' id="licence"
-                type="number"
+              <input className="w-full lg:w-[320px] box-border flex flex-row items-center justify-start p-4 text-base text-black placeholder-cadet-green border-[1px] border-solid border-bb-green" placeholder='' id="licence"
                 value={licence}
-                onChange={(e) => handleNumberInputChange(e, setLicence)}
-                disabled={updating} />
+                type="text"
+                onChange={(e) => handleNumberInputChange(e, setLicence, setLicenceEmpty)}
+                disabled={updating} 
+                />
+                {licenceEmpty && <div className='text-red-500'>Broj licenca je obavezan</div>}
             </div>
           </div>
           {/* ustanova */}
@@ -147,10 +187,12 @@ export function ProfileForm({ }: Props) {
             <div className="flex-1 flex flex-col items-start justify-start gap-[4px] form-group">
               <label className="label" htmlFor="ustanova">Ustanova:*</label>
               <input className="self-stretch box-border flex flex-row items-center justify-start p-4 text-base text-black placeholder-cadet-green border-[1px] border-solid border-bb-green" id="ustanova"
-                type="ustanova"
                 value={ustanova}
-                onChange={(e) => setUstanova(e.target.value)}
-                disabled={updating} />
+                type="text"
+                onChange={(e) => handleInputChange(e,setUstanova,setUstanovaEmpty)}
+                disabled={updating}
+              />
+                {ustanovaEmpty && <div className='text-red-500'>Ime ustanove je obavezano</div>}
             </div>
           </div>
           {/* telefon */}
@@ -159,8 +201,11 @@ export function ProfileForm({ }: Props) {
               <label className="label" htmlFor="phone">Telefon:*</label>
               <input className="self-stretch box-border flex flex-row items-center justify-start p-4 text-base text-black placeholder-cadet-green border-[1px] border-solid border-bb-green" id="phone"
                 value={phone}
-                onChange={(e) => handleNumberInputChange(e, setPhone)}
-                disabled={updating} />
+                type="text"
+                onChange={(e) => handleNumberInputChange(e, setPhone, setPhoneEmpty)}
+                disabled={updating}
+              />
+                {phoneEmpty && <div className='text-red-500'>Broj licenca je obavezan</div>}
             </div>
           </div>
           {/* email */}
@@ -170,12 +215,14 @@ export function ProfileForm({ }: Props) {
               <input className="self-stretch box-border flex flex-row items-center justify-start p-4 text-base text-black placeholder-cadet-green border-[1px] border-solid border-bb-green" placeholder='primer@email.com' id="email"
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                disabled={updating} />
+                onChange={(e) => handleInputChange(e,setEmail,setEmailEmpty)}
+                disabled={updating}
+                />
+                {emailEmpty && <div className='text-red-500'>Email je obavezan</div>}
             </div>
           </div>
           <button type='button' onClick={() => submitForm({ firstName, lastName, email, title, phone, ustanova, licence })}
-            disabled={updating} className="self-stretch rounded-13xl bg-seagreen shadow-[0px_2px_4px_rgba(48,_49,_51,_0.1),_0px_0px_1px_rgba(48,_49,_51,_0.05)] flex flex-row items-center justify-center py-6 px-12 text-7xl text-white font-manrope">
+            disabled={updating || firstNameEmpty || lastNameEmpty || emailEmpty || phoneEmpty || licenceEmpty || titleEmpty || ustanovaEmpty} className="self-stretch rounded-13xl bg-seagreen shadow-[0px_2px_4px_rgba(48,_49,_51,_0.1),_0px_0px_1px_rgba(48,_49,_51,_0.05)] flex flex-row items-center justify-center py-6 px-12 text-7xl text-white font-manrope">
             <span className="relative leading-[109.5%] font-semibold">{updating ? 'Slanje prijave…' : 'Prijavi se'}</span>
           </button>
         </form>
