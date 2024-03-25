@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { supabase } from '../utils/supabaseClient'
-import nodemailer from 'nodemailer';
+import emailjs from 'emailjs-com';
 import * as dotenv from 'dotenv';
 dotenv.config();
+
 
 export interface Props {
 }
@@ -45,6 +46,8 @@ export function ProfileForm({ }: Props) {
     phone: string
   }) {
 
+    
+
     setUpdating(true);
     try {
       const data = {
@@ -66,24 +69,16 @@ export function ProfileForm({ }: Props) {
         throw error
       }
 
-      // Sending email via SMTP using Nodemailer with Gmail
-      const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          user: 'your_gmail_address@gmail.com',
-          pass: 'your_gmail_password',
-        },
-      });
+      const service_id : string = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '';
+      const template_id : string = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '';
 
-      // send mail with defined transport object
-      const info = await transporter.sendMail({
-        from: 'your_email@example.com',
-        to: email,
-        subject: `Prijava za simpozijum - ${firstName} ${lastName}`,
-        text: 'Body of your email',
-      });
+      // Send email using EmailJS
+      const templateParams = {
+        to_email: process.env.NEXT_PUBLIC_MONDORAMA_EMAIL,
+        message: `Titula: ${title}`, // Adjust message content as needed
+      };
 
-      console.log('Message sent: %s', info.messageId);
+      const response = await emailjs.send(service_id, template_id, templateParams, process.env.NEXT_PUBLIC_EMAILJS_USER_ID);
 
 
     } catch (error: any) {
