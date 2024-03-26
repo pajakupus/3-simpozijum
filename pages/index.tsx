@@ -57,7 +57,7 @@ export default function Home() {
             </svg>
             <div className="w-[290px] relative flex items-end shrink-0">Mesto</div>
           </div>
-          <a href='https://maps.app.goo.gl/JWM9qMN9cZatsNoMA' target="_blank" rel="noreferrer"  className="w-full self-stretch relative text-29xl [text-decoration:underline] text-seagreen">Kursumlijska Banja<br/>hotel “Planinka”</a>
+          <a href='https://maps.app.goo.gl/JWM9qMN9cZatsNoMA' target="_blank" rel="noreferrer"  className="w-full self-stretch relative text-29xl [text-decoration:underline] text-seagreen">Kuršumlijska Banja<br/>hotel “Planinka”</a>
         </div>
         <div className="self-stretch w-full lg:w-[620px] rounded-lg flex flex-col items-start justify-start gap-[24px]">
           <div className="flex flex-row items-start justify-start gap-[4px]">
@@ -85,7 +85,7 @@ export default function Home() {
         <div className="w-full lg:w-[620px] flex flex-col items-center justify-center gap-[40px] text-center text-5xl">
           <b className="w-[400px] relative flex items-center justify-center">Preuzmite program i paket simpozijuma</b>
           <div className="w-full lg:w-[405px] flex flex-col items-start justify-start gap-[32px] text-left text-7xl text-white">
-            <a href="https://kgbiwzxndpstlvvpwztg.supabase.co/storage/v1/object/public/Images/PROGRAM%20SIMPOZIJUMA%20(2).docx" download="program.ext" className="self-stretch rounded-13xl bg-plum shadow-[0px_2px_4px_rgba(48,_49,_51,_0.1),_0px_0px_1px_rgba(48,_49,_51,_0.05)] h-[76px] flex flex-row items-center justify-center py-6 px-12 box-border gap-[8px]">
+            <a href="https://kgbiwzxndpstlvvpwztg.supabase.co/storage/v1/object/public/Images/PROGRAM%20SIMPOZIJUMA%20(3).docx" download="program.ext" className="self-stretch rounded-13xl bg-plum shadow-[0px_2px_4px_rgba(48,_49,_51,_0.1),_0px_0px_1px_rgba(48,_49,_51,_0.05)] h-[76px] flex flex-row items-center justify-center py-6 px-12 box-border gap-[8px]">
               <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M25.1378 14.0273C30.5191 14.4907 32.7164 17.2561 32.7164 23.31V23.5043C32.7164 30.186 30.0407 32.8617 23.359 32.8617H13.6279C6.94618 32.8617 4.27051 30.186 4.27051 23.5043V23.31C4.27051 17.3009 6.43796 14.5356 11.7295 14.0423" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M18.5 3.71289V22.9658" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -115,7 +115,7 @@ export default function Home() {
             <div className="self-stretch rounded-[32px] lg:rounded-[123189px] bg-white overflow-hidden flex flex-col lg:flex-row items-center justify-start p-5 gap-[48px] text-13xl text-black font-manrope border-[2px] border-solid border-teal">
               <img className="w-[172.37px] relative rounded-[86.19px] h-[181.39px] object-cover" alt="" src="https://kgbiwzxndpstlvvpwztg.supabase.co/storage/v1/object/public/Images/Slika-3.png" />
               <div className="flex flex-col items-center lg:items-start justify-center gap-[8px]">
-                <div className="relative tracking-[-0.05em] leading-[40px] font-medium text-center lg:text-start">Prof. dr Suzana Tosic Golubovic</div>
+                <div className="relative tracking-[-0.05em] leading-[40px] font-medium text-center lg:text-start">Prof. dr Suzana Tošic Golubović</div>
                 <div className="relative text-5xl leading-[109.5%] text-dimgray">psihijatar</div>
               </div>
             </div>
@@ -125,7 +125,7 @@ export default function Home() {
             <div className="self-stretch flex flex-col lg:flex-row items-start justify-between text-13xl text-black font-manrope">
               <div className="flex flex-col items-start justify-start gap-[32px]">
                 <div className="flex flex-col items-start justify-center gap-[8px]">
-                  <div className="relative tracking-[-0.05em] leading-[40px] font-medium">Dr Nada Ćirič</div>
+                  <div className="relative tracking-[-0.05em] leading-[40px] font-medium">Dr Nada Ćirić</div>
                   <div className="relative text-5xl leading-[109.5%] text-dimgray">psihijatar</div>
                 </div>
                 <div className="flex flex-col items-start justify-center gap-[8px]">
@@ -137,11 +137,11 @@ export default function Home() {
                   <div className="relative text-5xl leading-[109.5%] text-dimgray">psihijatar</div>
                 </div>
                 <div className="flex flex-col items-start justify-center gap-[8px]">
-                  <div className="relative tracking-[-0.05em] leading-[40px] font-medium">Dr Iva Binić</div>
+                  <div className="relative tracking-[-0.05em] leading-[40px] font-medium">Ass. dr Iva Binić</div>
                   <div className="relative text-5xl leading-[109.5%] text-dimgray">psihijatar</div>
                 </div>
                 <div className="flex flex-col items-start justify-center gap-[8px]">
-                  <div className="relative tracking-[-0.05em] leading-[40px] font-medium">Mr. sci med. Violeta Slavković</div>
+                  <div className="relative tracking-[-0.05em] leading-[40px] font-medium">Mr sci. med. Violeta Slavković</div>
                   <div className="relative text-5xl leading-[109.5%] text-dimgray">psihijatar</div>
                 </div>
               </div>
