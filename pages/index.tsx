@@ -57,7 +57,7 @@ export default function Home() {
             </svg>
             <div className="w-[290px] relative flex items-end shrink-0">Mesto</div>
           </div>
-          <a href='https://maps.app.goo.gl/JWM9qMN9cZatsNoMA' target="_blank" rel="noreferrer"  className="w-full self-stretch relative text-29xl [text-decoration:underline] text-seagreen">Kuršumlijska Banja<br/>hotel “Planinka”</a>
+          <a href='https://www.google.com/maps/place/%D0%9F%D0%BB%D0%B0%D0%BD%D0%B8%D0%BD%D0%BA%D0%B0/@43.057539,21.2520914,15z/data=!4m9!3m8!1s0x4755f942b717d22f:0x1381e73439c974a2!5m2!4m1!1i2!8m2!3d43.057539!4d21.2520914!16s%2Fg%2F11q31x8m1y?entry=ttu' target="_blank" rel="noreferrer"  className="w-full self-stretch relative text-29xl [text-decoration:underline] text-seagreen">Kuršumlijska Banja<br/>hotel “Planinka”</a>
         </div>
         <div className="self-stretch w-full lg:w-[620px] rounded-lg flex flex-col items-start justify-start gap-[24px]">
           <div className="flex flex-row items-start justify-start gap-[4px]">
