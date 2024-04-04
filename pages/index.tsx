@@ -129,6 +129,10 @@ export default function Home() {
                   <div className="relative text-5xl leading-[109.5%] text-dimgray">psihijatar</div>
                 </div>
                 <div className="flex flex-col items-start justify-center gap-[8px]">
+                  <div className="relative tracking-[-0.05em] leading-[40px] font-medium">Dr Dragoslava Gugleta</div>
+                  <div className="relative text-5xl leading-[109.5%] text-dimgray">psihijatar</div>
+                </div>
+                <div className="flex flex-col items-start justify-center gap-[8px]">
                   <div className="relative tracking-[-0.05em] leading-[40px] font-medium">Prof. dr Olivera Žikić</div>
                   <div className="relative text-5xl leading-[109.5%] text-dimgray">psihijatar</div>
                 </div>

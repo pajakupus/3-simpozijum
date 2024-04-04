@@ -27,7 +27,6 @@ export function ProfileForm({ }: Props) {
   const [emailEmpty, setEmailEmpty] = useState(false);
   const [titleEmpty, setTitleEmpty] = useState(false);
   const [phoneEmpty, setPhoneEmpty] = useState(false);
-  const [licenceEmpty, setLicenceEmpty] = useState(false);
   const [ustanovaEmpty, setUstanovaEmpty] = useState(false);
   const [addressEmpty, setAddressEmpty] = useState(false);
   const [selectEmpty, setSelectEmpty] = useState(false);
@@ -105,10 +104,6 @@ export function ProfileForm({ }: Props) {
       setPhoneEmpty(true);
       throw new Error('Sva polja moraju biti popunjena')
     };
-    if (licence == '')  {
-      setLicenceEmpty(true);
-      throw new Error('Sva polja moraju biti popunjena')
-    };
     if (email == '')  {
       setEmailEmpty(true);
       throw new Error('Sva polja moraju biti popunjena')
@@ -118,7 +113,7 @@ export function ProfileForm({ }: Props) {
       throw new Error('Sva polja moraju biti popunjena')
     };
 
-    if (firstNameEmpty || lastNameEmpty || emailEmpty || licenceEmpty || ustanovaEmpty || titleEmpty || phoneEmpty || addressEmpty) {
+    if (firstNameEmpty || lastNameEmpty || emailEmpty || ustanovaEmpty || titleEmpty || phoneEmpty || addressEmpty) {
       throw new Error('Sva polja moraju biti popunjena');
     }
     try {
@@ -241,10 +236,9 @@ export function ProfileForm({ }: Props) {
               <input className="w-full lg:w-[320px] box-border flex flex-row items-center justify-start p-4 text-base text-black placeholder-cadet-green border-[1px] border-solid border-bb-green" placeholder='' id="licence"
                 value={licence}
                 type="text"
-                onChange={(e) => handleNumberInputChange(e, setLicence, setLicenceEmpty)}
+                onChange={(e) => handleNumberInputChange(e, setLicence, ()=>{})}
                 disabled={updating}
               />
-              {licenceEmpty && <div className='text-red-500'>Broj licenca je obavezan</div>}
             </div>
           </div>
           {/* ustanova */}
@@ -315,7 +309,7 @@ export function ProfileForm({ }: Props) {
             {selectEmpty && <div className='text-red-500'>Molimo izaberite opciju</div>}
           </div>
           <button type='button' onClick={() => submitForm({ firstName, lastName, email, title, phone, ustanova, licence, address, select })}
-            disabled={updating || firstNameEmpty || lastNameEmpty || emailEmpty || phoneEmpty || licenceEmpty || titleEmpty || ustanovaEmpty || addressEmpty || selectEmpty} className="self-stretch rounded-13xl bg-seagreen shadow-[0px_2px_4px_rgba(48,_49,_51,_0.1),_0px_0px_1px_rgba(48,_49,_51,_0.05)] flex flex-row items-center justify-center py-6 px-12 text-7xl text-white font-manrope">
+            disabled={updating || firstNameEmpty || lastNameEmpty || emailEmpty || phoneEmpty || titleEmpty || ustanovaEmpty || addressEmpty || selectEmpty} className="self-stretch rounded-13xl bg-seagreen shadow-[0px_2px_4px_rgba(48,_49,_51,_0.1),_0px_0px_1px_rgba(48,_49,_51,_0.05)] flex flex-row items-center justify-center py-6 px-12 text-7xl text-white font-manrope">
             <span className="relative leading-[109.5%] font-semibold">{updating ? 'Slanje prijave…' : 'Prijavi se'}</span>
           </button>
           {success && <div>Uspesno ste se prijavili!</div> }
