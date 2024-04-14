@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { supabase } from '../utils/supabaseClient'
 import emailjs from 'emailjs-com';
 import * as dotenv from 'dotenv';
 dotenv.config();
@@ -128,15 +127,6 @@ export function ProfileForm({ }: Props) {
         address: address,
         select:select
       };
-
-      const { error } = await supabase.from('users').upsert(data, {
-        returning: 'minimal', // Don't return the value after inserting
-      })
-
-
-      if (error) {
-        throw new Error("Doslo je do greske, molimo pokusajte ponovo i proverite vasu email adresu!")
-      }
 
       const service_id: string = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '';
       const template_id: string = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '';
